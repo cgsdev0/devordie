@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://chhr08s12ey1y"]
+
+[ext_resource type="PackedScene" uid="uid://dt2rvv0rej0dr" path="res://props/Pine Trees.glb" id="1_cf80l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s3swo"]
+albedo_color = Color(0.164706, 0.4, 0.117647, 1)
+
+[node name="Root Scene" instance=ExtResource("1_cf80l")]
+
+[node name="Resource_PineTree_Group" parent="RootNode" index="0"]
+surface_material_override/1 = SubResource("StandardMaterial3D_s3swo")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2hv4rqw3cb85"]
+
+[ext_resource type="PackedScene" uid="uid://bvkkqj6mk8och" path="res://Stove Oven.glb" id="1_4cs0c"]
+
+[node name="Stove Oven" instance=ExtResource("1_4cs0c")]
+
+[node name="appliance_oven_door_Cube_275" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0)

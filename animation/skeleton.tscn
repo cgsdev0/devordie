@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://eypilg6qnk3f"]
+
+[ext_resource type="PackedScene" uid="uid://cp3mcq38rmlnc" path="res://animation/rigged.fbx" id="1_cqwwp"]
+[ext_resource type="Script" path="res://scripts/skeleton.gd" id="2_7mnqj"]
+[ext_resource type="Animation" uid="uid://cv1g013tx3sh1" path="res://animation/sitting.res" id="2_ttl0v"]
+[ext_resource type="Animation" uid="uid://eauqgn0kgvg1" path="res://animation/looking_low.res" id="3_mxssv"]
+[ext_resource type="Animation" uid="uid://drwxmpsmvurum" path="res://animation/looking_high.res" id="3_v6e2x"]
+[ext_resource type="Animation" uid="uid://bu3tstfjxir55" path="res://animation/idle.res" id="5_u1dc4"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n6x30"]
+_data = {
+"idle": ExtResource("5_u1dc4"),
+"looking_high": ExtResource("3_v6e2x"),
+"looking_low": ExtResource("3_mxssv"),
+"sitting": ExtResource("2_ttl0v")
+}
+
+[node name="Root Scene" instance=ExtResource("1_cqwwp")]
+script = ExtResource("2_7mnqj")
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(300, 0, 0, 0, 300, 0, 0, 0, 300, 0, 0, 0)
+
+[node name="Skeleton3D" parent="RootNode" index="16"]
+bones/0/position = Vector3(-2.26785e-05, 0.00442536, -2.4339e-05)
+bones/0/rotation = Quaternion(-0.0187486, -5.78419e-05, -0.0162884, 0.999692)
+bones/1/rotation = Quaternion(-0.0269781, 0.00124314, -0.00497378, 0.999623)
+bones/2/rotation = Quaternion(0.0148127, -0.018698, -0.00590442, 0.999698)
+bones/3/rotation = Quaternion(0.0149988, -0.0187892, -0.00528568, 0.999697)
+bones/4/rotation = Quaternion(0.0430335, 0.00511148, -0.00320601, 0.999056)
+bones/5/rotation = Quaternion(0.0525255, -0.0142306, 0.0298456, 0.998072)
+bones/7/rotation = Quaternion(-0.469453, -0.528568, 0.524531, -0.474445)
+bones/8/rotation = Quaternion(0.5866, 0.152716, 0.117341, 0.786644)
+bones/9/rotation = Quaternion(0.0184576, 0.00280923, 0.245622, 0.969186)
+bones/11/rotation = Quaternion(0.572052, -0.443464, 0.439847, 0.53163)
+bones/12/rotation = Quaternion(0.567854, -0.107074, -0.111881, 0.808431)
+bones/13/rotation = Quaternion(0.0183789, -0.00222182, -0.25511, 0.966735)
+bones/15/rotation = Quaternion(0.0297169, 0.0906515, 0.995147, -0.0241258)
+bones/16/rotation = Quaternion(-0.305413, -0.0765701, 0.0344022, 0.948513)
+bones/17/rotation = Quaternion(0.65711, 0.0391137, -0.04527, 0.751417)
+bones/18/rotation = Quaternion(0.220413, -0.0114714, 0.00288455, 0.975335)
+bones/20/rotation = Quaternion(-0.128149, 0.0333378, 0.990023, 0.0481722)
+bones/21/rotation = Quaternion(-0.214494, 0.0298505, -0.0309317, 0.975779)
+bones/22/rotation = Quaternion(0.616765, -0.0158066, 0.0832213, 0.782576)
+bones/23/rotation = Quaternion(0.217535, 5.52222e-05, -2.82227e-05, 0.976053)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+reset_on_save = false
+libraries = {
+"humans": SubResource("AnimationLibrary_n6x30")
+}

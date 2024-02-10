@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://x760sc0ku5q7"]
+
+[ext_resource type="Material" uid="uid://csyy7orao3hc1" path="res://materials/base.tres" id="1_iij4u"]
+[ext_resource type="Material" uid="uid://b1psskb51uslm" path="res://materials/frosting.tres" id="2_78fip"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075667, 0)
+
+[node name="Layer1" type="CSGBox3D" parent="Node3D"]
+size = Vector3(0.6, 0.164, 1)
+material = ExtResource("1_iij4u")
+
+[node name="Frosting" type="CSGBox3D" parent="Node3D/Layer1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.076, 0)
+size = Vector3(0.62, 0.04, 1.02)
+material = ExtResource("2_78fip")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Node3D/Layer1/Frosting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125789, 0)
+operation = 2
+
+[node name="CSGCylinder3D5" type="CSGBox3D" parent="Node3D/Layer1/Frosting/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115, 0)
+size = Vector3(0.56, 0.092, 0.96)
+material = ExtResource("2_78fip")

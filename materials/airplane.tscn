@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfytsc721d3jn"]
+
+[ext_resource type="PackedScene" uid="uid://s6ysyqc2vnsm" path="res://props/Airplane.glb" id="1_rksjd"]
+
+[node name="Airplane" instance=ExtResource("1_rksjd")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 400, 0)

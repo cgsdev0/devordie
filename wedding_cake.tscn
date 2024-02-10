@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk52htxbkkoxy"]
+
+[ext_resource type="Material" uid="uid://csyy7orao3hc1" path="res://materials/base.tres" id="1_0haon"]
+[ext_resource type="Material" uid="uid://b1psskb51uslm" path="res://materials/frosting.tres" id="2_f54pb"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125776, 0)
+
+[node name="Layer1" type="CSGCylinder3D" parent="Node3D"]
+height = 0.265492
+material = ExtResource("1_0haon")
+
+[node name="Frosting" type="CSGCylinder3D" parent="Node3D/Layer1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125789, 0)
+radius = 0.52
+height = 0.02
+material = ExtResource("2_f54pb")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Node3D/Layer1/Frosting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125789, 0)
+operation = 2
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Node3D/Layer1/Frosting/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114896, 0)
+radius = 0.48
+height = 0.0915517
+material = ExtResource("2_f54pb")
+
+[node name="Layer2" type="CSGCylinder3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.236, 0)
+radius = 0.35
+height = 0.265492
+material = ExtResource("1_0haon")
+
+[node name="Frosting" type="CSGCylinder3D" parent="Node3D/Layer2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125789, 0)
+radius = 0.37
+height = 0.02
+material = ExtResource("2_f54pb")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Node3D/Layer2/Frosting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125789, 0)
+operation = 2
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Node3D/Layer2/Frosting/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114896, 0)
+radius = 0.33
+height = 0.0915517
+material = ExtResource("2_f54pb")
+
+[node name="Layer3" type="CSGCylinder3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44603, 0)
+radius = 0.2
+height = 0.265492
+material = ExtResource("1_0haon")
+
+[node name="Frosting" type="CSGCylinder3D" parent="Node3D/Layer3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125789, 0)
+radius = 0.22
+height = 0.02
+material = ExtResource("2_f54pb")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Node3D/Layer3/Frosting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125789, 0)
+operation = 2
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Node3D/Layer3/Frosting/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000116169, 0.114895, 0.000278495)
+radius = 0.18
+height = 0.0915517
+material = ExtResource("2_f54pb")

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1g72q06uwehj"]
+
+[ext_resource type="PackedScene" uid="uid://u82re2qburo1" path="res://props/DEFINITELY NOT AN OVEN.fbx" id="1_kwdx8"]
+
+[node name="Root Scene" instance=ExtResource("1_kwdx8")]

@@ -1,0 +1,95 @@
+[gd_scene load_steps=11 format=3 uid="uid://bu2aho4qxb2gx"]
+
+[ext_resource type="PackedScene" uid="uid://bjtk7mnchd1j5" path="res://table/Table Round Small.glb" id="1_6o616"]
+[ext_resource type="PackedScene" uid="uid://bk52htxbkkoxy" path="res://wedding_cake.tscn" id="2_f7rp0"]
+[ext_resource type="PackedScene" uid="uid://7pk32jnp8la8" path="res://Rolling Pin.glb" id="3_jltsv"]
+[ext_resource type="PackedScene" uid="uid://c2hv4rqw3cb85" path="res://stove_oven.tscn" id="4_x61qi"]
+[ext_resource type="Texture2D" uid="uid://du0fell0qh3cf" path="res://floor.jpg" id="5_nskx4"]
+[ext_resource type="Material" uid="uid://o0p1crx7ttxk" path="res://materials/bakery_wall.tres" id="6_ipa3f"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="7_7xlxg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jo46"]
+albedo_texture = ExtResource("5_nskx4")
+uv1_scale = Vector3(25, 25, 25)
+
+[sub_resource type="QuadMesh" id="QuadMesh_om31s"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n13uy"]
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.537081)
+
+[node name="Root Scene" parent="." instance=ExtResource("1_6o616")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+
+[node name="Node3D" parent="." instance=ExtResource("2_f7rp0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.019, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.92968, 0.101542, -0.354096, 7.45058e-09, 0.961257, 0.275654, 0.368368, -0.25627, 0.893661, -1.23595, 2.5083, 2.31198)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.652786, 0.757542, 0, -0.757542, 0.652786, 0, 5.07339, 3.11865)
+
+[node name="Rolling Pin" parent="." instance=ExtResource("3_jltsv")]
+transform = Transform3D(0.421036, 0, 0.907044, 0, 1, 0, -0.907044, 0, 0.421036, 0.660698, 1.10155, 0.279887)
+
+[node name="Stove Oven" parent="." instance=ExtResource("4_x61qi")]
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -1.50083, 0.930902, -4.58978)
+
+[node name="Stove Oven2" parent="." instance=ExtResource("4_x61qi")]
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0.0757846, 0.930902, -4.58978)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_7jo46")
+mesh = SubResource("QuadMesh_om31s")
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82796, 2.38155, -5.98264)
+material_override = ExtResource("6_ipa3f")
+size = Vector3(14.167, 6.99197, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(0.529638, 0, -0.848224, 0, 1, 0, 0.848224, 0, 0.529638, 5.95533, 2.38155, -3.20853)
+material_override = ExtResource("6_ipa3f")
+size = Vector3(11.2779, 6.99197, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(-0.543599, 0, -0.839345, 0, 1, 0, 0.839345, 0, -0.543599, 8.29965, 2.38155, 0.842547)
+material_override = ExtResource("6_ipa3f")
+size = Vector3(10.2941, 6.99197, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(0.826029, 0, -0.563627, 0, 1, 0, 0.563627, 0, 0.826029, 12.1752, 2.38155, 4.04672)
+material_override = ExtResource("6_ipa3f")
+size = Vector3(10.2941, 6.99197, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(0.826029, 0, -0.563627, 0, 1, 0, 0.563627, 0, 0.826029, 4.61707, 2.38155, 15.1236)
+material_override = ExtResource("6_ipa3f")
+size = Vector3(10.2941, 6.99197, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(0.548979, 0, 0.835836, 0, 1, 0, -0.835836, 0, 0.548979, 10.6629, 2.38155, 11.8797)
+material_override = ExtResource("6_ipa3f")
+size = Vector3(22.3551, 6.99197, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(-0.543599, 0, -0.839345, 0, 1, 0, 0.839345, 0, -0.543599, 0.980543, 2.38155, 12.1436)
+material_override = ExtResource("6_ipa3f")
+size = Vector3(10.2941, 6.99197, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(-0.543599, 0, -0.839345, 0, 1, 0, 0.839345, 0, -0.543599, 4.7053, 5.12863, 6.39241)
+material_override = ExtResource("6_ipa3f")
+size = Vector3(10.2941, 1.49782, 1)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("7_7xlxg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.524, 1.91287, 2.29843)
+shape = SubResource("CapsuleShape3D_n13uy")
