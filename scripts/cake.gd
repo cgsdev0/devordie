@@ -68,7 +68,7 @@ func matches(b):
 		return false
 	if b.cake_type != cake_type:
 		return false
-	if b.layers != layers:
+	if cake_type == CakeType.TIERED && b.layers != layers:
 		return false
 	
 	return true

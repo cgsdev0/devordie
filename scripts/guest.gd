@@ -1,14 +1,20 @@
 extends Node3D
 
 
+@export var scaling: Curve
+
 var timer = 0.0
 var delay = 0.0
+var waiting = 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	%Bubble.hide()
 	delay = randf_range(1.0, 10.0)
 	$Area3D.name = "Table" + name
 	%Cake.randomize()
+
+func waits_for():
+	return scaling.sample(clampf(GameState.score / 25.0, 0.0, 1.0))
 	
 func _process(delta):
 	delay -= delta
@@ -16,10 +22,11 @@ func _process(delta):
 		if randi_range(0, 10) == 4:
 			$Skele/Rare.play()
 		%Bubble.show()
+		waiting = waits_for()
 	if !%Bubble.visible || moving_on:
 		return
 	timer += delta
-	if timer > 30.0:
+	if timer > waiting:
 		descend()
 
 var Cake = preload("res://cake.tscn")
@@ -38,7 +45,7 @@ func descend():
 	moving_on = false
 	timer = 0.0
 	%Cake.randomize()
-	delay = randf_range(1.0, 30.0)
+	delay = randf_range(5.0, 20.0)
 	
 func give_cake(cake):
 	if ! %Bubble.visible:

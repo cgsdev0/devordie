@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://d21tyaw3fr8rg"]
+[gd_scene load_steps=32 format=3 uid="uid://d21tyaw3fr8rg"]
 
 [ext_resource type="PackedScene" uid="uid://eypilg6qnk3f" path="res://animation/skeleton.tscn" id="1_gwod3"]
 [ext_resource type="Script" path="res://scripts/guest.gd" id="1_iu6lu"]
@@ -14,6 +14,11 @@
 [ext_resource type="Shader" path="res://outline.gdshader" id="7_ph053"]
 [ext_resource type="Shader" path="res://fire.gdshader" id="11_23t7i"]
 [ext_resource type="Texture2D" uid="uid://djl3orosc3kq6" path="res://fire.jpeg" id="12_qfws1"]
+
+[sub_resource type="Curve" id="Curve_e73cj"]
+max_value = 45.0
+_data = [Vector2(0, 40.3787), 0.0, 0.0, 0, 0, Vector2(0.534146, 29.5051), -57.7912, -57.7912, 0, 0, Vector2(1, 13.1947), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1yy5f"]
 height = 4.04965
@@ -212,6 +217,7 @@ albedo_color = Color(1, 1, 0.517647, 0.223529)
 [node name="Guest2" type="Node3D"]
 transform = Transform3D(0.990932, 0, -0.134367, 0, 1, 0, 0.134367, 0, 0.990932, 0, 0, 0)
 script = ExtResource("1_iu6lu")
+scaling = SubResource("Curve_e73cj")
 
 [node name="Skele" parent="." instance=ExtResource("1_gwod3")]
 transform = Transform3D(-0.783576, -0.129797, 0.607587, 0.0531081, 0.960362, 0.273651, -0.619022, 0.246694, -0.745623, -0.476, -0.035, 0.462)
