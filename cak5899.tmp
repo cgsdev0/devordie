@@ -1,0 +1,104 @@
+[gd_scene load_steps=4 format=3 uid="uid://crbi7kha0gj6r"]
+
+[ext_resource type="Script" path="res://scripts/cake.gd" id="1_ia2fs"]
+[ext_resource type="Material" uid="uid://csyy7orao3hc1" path="res://materials/base.tres" id="2_xxnki"]
+[ext_resource type="Material" uid="uid://b1psskb51uslm" path="res://materials/frosting.tres" id="3_wfdpa"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_ia2fs")
+frostingMat = ExtResource("3_wfdpa")
+
+[node name="Tiered" type="Node3D" parent="."]
+
+[node name="Node3D" type="Node3D" parent="Tiered"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125776, 0)
+
+[node name="Layer1" type="CSGCylinder3D" parent="Tiered/Node3D"]
+unique_name_in_owner = true
+height = 0.265492
+material = ExtResource("2_xxnki")
+
+[node name="Frosting" type="CSGCylinder3D" parent="Tiered/Node3D/Layer1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125789, 0)
+radius = 0.52
+height = 0.02
+material = ExtResource("3_wfdpa")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Tiered/Node3D/Layer1/Frosting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125789, 0)
+operation = 2
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Tiered/Node3D/Layer1/Frosting/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114896, 0)
+radius = 0.48
+height = 0.0915517
+material = ExtResource("3_wfdpa")
+
+[node name="Layer2" type="CSGCylinder3D" parent="Tiered/Node3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.236, 0)
+radius = 0.35
+height = 0.265492
+material = ExtResource("2_xxnki")
+
+[node name="Frosting" type="CSGCylinder3D" parent="Tiered/Node3D/Layer2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125789, 0)
+radius = 0.37
+height = 0.02
+material = ExtResource("3_wfdpa")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Tiered/Node3D/Layer2/Frosting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125789, 0)
+operation = 2
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Tiered/Node3D/Layer2/Frosting/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114896, 0)
+radius = 0.33
+height = 0.0915517
+material = ExtResource("3_wfdpa")
+
+[node name="Layer3" type="CSGCylinder3D" parent="Tiered/Node3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44603, 0)
+radius = 0.2
+height = 0.265492
+material = ExtResource("2_xxnki")
+
+[node name="Frosting" type="CSGCylinder3D" parent="Tiered/Node3D/Layer3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125789, 0)
+radius = 0.22
+height = 0.02
+material = ExtResource("3_wfdpa")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Tiered/Node3D/Layer3/Frosting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125789, 0)
+operation = 2
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Tiered/Node3D/Layer3/Frosting/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000116169, 0.114895, 0.000278495)
+radius = 0.18
+height = 0.0915517
+material = ExtResource("3_wfdpa")
+
+[node name="Sheet" type="Node3D" parent="."]
+
+[node name="Node3D" type="Node3D" parent="Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075667, 0)
+
+[node name="Layer1" type="CSGBox3D" parent="Sheet/Node3D"]
+size = Vector3(0.6, 0.164, 1)
+material = ExtResource("2_xxnki")
+
+[node name="Frosting" type="CSGBox3D" parent="Sheet/Node3D/Layer1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.076, 0)
+size = Vector3(0.62, 0.04, 1.02)
+material = ExtResource("3_wfdpa")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Sheet/Node3D/Layer1/Frosting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125789, 0)
+operation = 2
+
+[node name="CSGCylinder3D5" type="CSGBox3D" parent="Sheet/Node3D/Layer1/Frosting/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115, 0)
+size = Vector3(0.56, 0.092, 0.96)
+material = ExtResource("3_wfdpa")

@@ -1,0 +1,189 @@
+[gd_scene load_steps=21 format=3 uid="uid://d21tyaw3fr8rg"]
+
+[ext_resource type="PackedScene" uid="uid://eypilg6qnk3f" path="res://animation/skeleton.tscn" id="1_gwod3"]
+[ext_resource type="Script" path="res://scripts/guest.gd" id="1_iu6lu"]
+[ext_resource type="PackedScene" uid="uid://dxq2r5anjbn06" path="res://table/i_hate_this.glb" id="2_cy2p4"]
+[ext_resource type="Texture2D" uid="uid://biv4pawg8dkcr" path="res://bubble.png" id="3_gejtw"]
+[ext_resource type="PackedScene" uid="uid://crbi7kha0gj6r" path="res://cake.tscn" id="4_7mqoo"]
+[ext_resource type="Environment" uid="uid://cn8qt0f50ftha" path="res://materials/world.tres" id="4_rlxa2"]
+[ext_resource type="Shader" path="res://outline.gdshader" id="7_ph053"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1yy5f"]
+height = 4.04965
+radius = 1.5
+
+[sub_resource type="QuadMesh" id="QuadMesh_lu7fn"]
+size = Vector2(1.5, 1.5)
+center_offset = Vector3(-0.475, 0, 0)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wppve"]
+viewport_path = NodePath("SubViewport2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dl4dg"]
+resource_local_to_scene = true
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_wppve")
+texture_repeat = false
+billboard_mode = 2
+
+[sub_resource type="World3D" id="World3D_na06g"]
+environment = ExtResource("4_rlxa2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_41gc0"]
+resource_local_to_scene = true
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8f81o"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y1kod"]
+shader = ExtResource("7_ph053")
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/line_thickness = 6.678
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2m3ur"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_s2r20"]
+height = 2.461
+radius = 0.961
+
+[sub_resource type="Animation" id="Animation_qd68k"]
+resource_name = "ascend"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skele:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(7.21, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.476, -0.035, 0.462), Vector3(-0.476, 27.26, 0.462), Vector3(-0.476, 27.26, 0.462), Vector3(-0.476, -0.035, 0.462)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skele:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8s4n3"]
+resource_name = "descend"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skele:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(2.54912, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.476, -0.035, 0.462), Vector3(-0.476, -4.81, 0.462), Vector3(-0.476, 27.26, 0.462), Vector3(-0.476, -0.035, 0.462)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skele:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lwfna"]
+_data = {
+"ascend": SubResource("Animation_qd68k"),
+"descend": SubResource("Animation_8s4n3")
+}
+
+[node name="Guest2" type="Node3D"]
+transform = Transform3D(0.990932, 0, -0.134367, 0, 1, 0, 0.134367, 0, 0.990932, 0, 0, 0)
+script = ExtResource("1_iu6lu")
+
+[node name="Skele" parent="." instance=ExtResource("1_gwod3")]
+transform = Transform3D(-0.783576, -0.129797, 0.607587, 0.0531081, 0.960362, 0.273651, -0.619022, 0.246694, -0.745623, -0.476, -0.035, 0.462)
+animati = "humans/sitting"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, 0.179917, 0)
+shape = SubResource("CylinderShape3D_1yy5f")
+
+[node name="Bubble" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 1.93715e-07, 0, 1, 0, -1.93715e-07, 0, 1, -0.934634, 2.96341, 1.06805)
+mesh = SubResource("QuadMesh_lu7fn")
+surface_material_override/0 = SubResource("StandardMaterial3D_dl4dg")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+own_world_3d = true
+world_3d = SubResource("World3D_na06g")
+transparent_bg = true
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.876315, 0.481738, 0, -0.481738, 0.876315, 0, 0.95, 1.455)
+fov = 60.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.652786, 0.757542, 0, -0.757542, 0.652786, 0, 5.07339, 3.11865)
+
+[node name="Cake" parent="SubViewport" instance=ExtResource("4_7mqoo")]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+frostingMat = SubResource("StandardMaterial3D_41gc0")
+baseMat = SubResource("StandardMaterial3D_8f81o")
+
+[node name="SubViewport2" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(640, 640)
+
+[node name="TextureRect2" type="TextureRect" parent="SubViewport2"]
+offset_left = 10.0
+offset_right = 556.0
+offset_bottom = 595.0
+texture = ExtResource("3_gejtw")
+
+[node name="TextureRect" type="TextureRect" parent="SubViewport2"]
+material = SubResource("ShaderMaterial_y1kod")
+offset_left = 40.0
+offset_top = -10.0
+offset_right = 552.0
+offset_bottom = 502.0
+texture = SubResource("ViewportTexture_2m3ur")
+
+[node name="CakeMount" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, 1, -0.103717, 1.20355, 0.0140637)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_s2r20")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lwfna")
+}
+
+[node name="i_hate_this" parent="." instance=ExtResource("2_cy2p4")]
+transform = Transform3D(-0.0369686, -3.97293e-09, -0.0336649, -3.81842e-08, 0.05, 3.37604e-09, 0.0336648, 4.00122e-08, -0.0369686, -0.00549204, -0.365215, -0.00925414)

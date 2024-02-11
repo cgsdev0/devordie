@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1duyulxlckou"]
+
+[ext_resource type="Script" path="res://scripts/game_over_label.gd" id="1_fklto"]
+[ext_resource type="AudioStream" uid="uid://cvfehs8ikf5bt" path="res://sounds/game_over.mp3" id="2_t2uxk"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 56
+text = "Game OVER
+you did NOT win
+but also you CANT win
+hahahahahahahahhh
+press R to restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_fklto")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Label"]
+stream = ExtResource("2_t2uxk")
+autoplay = true

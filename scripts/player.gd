@@ -4,6 +4,7 @@ extends CharacterBody3D
 const SPEED = 12.0
 const JUMP_VELOCITY = 9.0
 
+var picked
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var inside = false
@@ -60,6 +61,14 @@ func _process(delta):
 	if !$RemoteTransform3D.active:
 		return
 		
+	pick_things()
+	if Input.is_action_just_pressed("click"):
+		if picked:
+			%MainCake.do_thing(picked, "left", who)
+	elif Input.is_action_just_pressed("rclick"):
+		if picked:
+			%MainCake.do_thing(picked, "right", who)
+		
 	var fly_hack = OS.is_debug_build() && Input.is_key_pressed(KEY_SHIFT)
 	
 	# Add the gravity.
@@ -100,3 +109,33 @@ func _process(delta):
 #		angle = result.normal.angle_to(Vector3.UP)
 #	if angle > 0.8:
 #		global_transform.origin = prev
+
+
+func _on_area_3d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	if body == self:
+		%CakeCam.show()
+
+
+func _on_area_3d_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
+	if body == self:
+		%CakeCam.hide()
+
+var who
+func pick_things():
+	if $RemoteTransform3D/RayCast3D.is_colliding():
+		picked = $RemoteTransform3D/RayCast3D.get_collider().name
+		who = $RemoteTransform3D/RayCast3D.get_collider()
+		%Crosshair/Frosting.hide()
+		%Crosshair/CakeType.hide()
+		%Crosshair/Serve.hide()
+		if picked.begins_with("Color"):
+			%Crosshair/Frosting.show()
+		elif picked.begins_with("BaseCake"):
+			%Crosshair/CakeType.show()
+		elif picked.begins_with("Table"):
+			%Crosshair/Serve.show()
+		%Crosshair.show()
+	else:
+		%Crosshair.hide()
+		who = null
+		picked = null

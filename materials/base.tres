@@ -1,3 +1,4 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://csyy7orao3hc1"]
 
 [resource]
+resource_local_to_scene = true
