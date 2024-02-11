@@ -52,6 +52,7 @@ func give_cake(cake):
 	var old_owner = cake.owner
 	cake.unique_name_in_owner = false
 	cake.owner = self.owner
+	cake.name = "trash"
 	var old_parent = cake.get_parent()
 	var old_transform = cake.global_transform
 	cake.get_parent().remove_child(cake)
@@ -59,10 +60,9 @@ func give_cake(cake):
 	cake.global_position = %CakeMount.global_position
 	var new_cake = Cake.instantiate()
 	new_cake.reset()
-	old_parent.add_child(new_cake)
 	new_cake.name = "MainCake"
+	old_parent.add_child(new_cake)
 	new_cake.owner = old_owner
-	new_cake.unique_name_in_owner = true
 	new_cake.global_transform = old_transform
 	
 	moving_on = true

@@ -50,6 +50,8 @@ func randomize():
 	update()
 	
 func _ready():
+	if name == "MainCake":
+		GameState.main_cake = self
 	update()
 
 func reset():

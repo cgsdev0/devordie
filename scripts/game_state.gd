@@ -5,6 +5,8 @@ var sensitivity = 0.1
 var rating = 5
 var score = 0
 
+var main_cake
+
 func decrease_rating():
 	rating -= 1
 	if rating <= 0:

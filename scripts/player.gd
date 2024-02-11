@@ -64,10 +64,10 @@ func _process(delta):
 	pick_things()
 	if Input.is_action_just_pressed("click"):
 		if picked:
-			%MainCake.do_thing(picked, "left", who)
+			GameState.main_cake.do_thing(picked, "left", who)
 	elif Input.is_action_just_pressed("rclick"):
 		if picked:
-			%MainCake.do_thing(picked, "right", who)
+			GameState.main_cake.do_thing(picked, "right", who)
 		
 	var fly_hack = OS.is_debug_build() && Input.is_key_pressed(KEY_SHIFT)
 	
