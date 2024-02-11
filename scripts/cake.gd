@@ -62,9 +62,9 @@ func matches(b):
 		return false
 	if b.has_frosting != has_frosting:
 		return false
-	if b.base_color != base_color:
+	if has_base && b.base_color != base_color:
 		return false
-	if b.frosting_color != frosting_color:
+	if has_frosting && b.frosting_color != frosting_color:
 		return false
 	if b.cake_type != cake_type:
 		return false
